@@ -10,27 +10,19 @@
 </head>
 <body>
     <div class="container py-4" id="app">
-       <form action="" v-on:submit.prevent="addPais()">
-        <div class="mb-3">
-            <label for="InputName" class="form-label">Pais</label>
-            <input class="form-control" type="text" v-model="name" id="InputName">
-        </div>
-        <div class="mb-3">
-            <label for="InputCapital" class="form-label">Capital</label>
-            <input class="form-control" type="text" v-model="capital" id="InputCapital">
-        </div>
-       
-        <button type="submit" class="btn btn-primary mb-4">Agregar</button>
         
-        <ul>
-            <template v-for="(pais,index) in paises">
-                <li :key="pais.name">
-                    {{index+1}} - {{pais.name}} - {{pais.capital}}
-                </li>
+        <template v-if="active">
+            <h1>v-if, v-else-if, v-else, v-show</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident voluptas ipsam corporis explicabo! Earum sapiente dolorum libero, cum qui voluptas veniam est! Consequuntur fugiat exercitationem rem earum praesentium temporibus explicabo?</p>    
+        </template>
 
-            </template>
-        </ul>
-       </form>
+        <div v-if="type=='A'">se muestra A</div>
+        <div v-else-if="type=='B'">se muestra B</div>
+        <div v-else-if="type=='C'">semuestra C</div>
+        <div v-else>No se muestra ni A, ni B, ni C</div>
+
+        <p v-if="false">v-if==false --- lo elimina del DOM</p>
+        <p v-show>v-show --- el style=display:none</p>
 
     </div> 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -38,12 +30,8 @@
        Vue.createApp({
             data(){
                 return{
-                    name:"",
-                    capital:"",
-                    paises:[
-                            {name:"Bolivia",capital:"Sucre"},
-                            {name:"Peru",capital:"Lima"}
-                        ]
+                    active:false,
+                    type:'B'
                 }
             },
             methods:{
