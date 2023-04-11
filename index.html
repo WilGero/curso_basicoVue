@@ -24,8 +24,8 @@
         
         <ul>
             <template v-for="(pais,index) in paises">
-                <li>
-                    {{index+1}}) {{pais.name}} - {{pais.capital}}
+                <li :key="pais.name">
+                    {{index+1}} - {{pais.name}} - {{pais.capital}}
                 </li>
 
             </template>
