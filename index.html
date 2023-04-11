@@ -18,11 +18,11 @@
          nulla, facere laborum dolorum aspernatur quam unde labore aut ipsum error voluptates debitis, 
          voluptatum placeat! Maiores quisquam inventore nam vel laborum.</p>
 
-         <button @click="btnColor()" v-bind:class="active ? 'btn btn-secondary':'btn btn-success'">
+         <button @click="btnColor()" class="btn" v-bind:class="active ? 'btn-secondary':'btn-success'">
             <span v-if="active">Desactivar</span>
             <span v-else>Activar</span>
          </button>
-         <p v-bind:class="active ? 'text-success':'text-secondary'">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sit corporis rem blanditiis inventore doloribus! Necessitatibus dolor, 
+         <p v-bind:class="colorClassText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sit corporis rem blanditiis inventore doloribus! Necessitatibus dolor, 
             quasi numquam ipsam officia veritatis, et, esse id sapiente earum velit nesciunt distinctio.</p>
     </div> 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -47,6 +47,11 @@
                 //     this.name="";
                 //     this.capital="";
                 // }
+            },
+            computed:{
+                colorClassText(){
+                    return this.active ? 'text-success':'text-secondary'
+                }
             }
             // mounted(){
             //     setInterval(()=>{
