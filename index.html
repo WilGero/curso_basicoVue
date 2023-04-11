@@ -10,30 +10,26 @@
 </head>
 <body>
     <div class="container py-4" id="app">
-        <button class="btn btn-danger" v-on:click="decrement()">
-            -
-        </button>
-        {{counter}}
-        <button class="btn btn-primary" v-on:click="increment()">
-            +
-        </button>
+       <form action="" v-on:submit.prevent="addPais()">
+        <input class="form-control" type="text" v-model="nombre">
+        <button class="btn btn-primary mb-4">Agregar</button>
+        <p>{{paises}}</p>
+       </form>
+
     </div> 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>""
        Vue.createApp({
             data(){
                 return{
-                    message:'Holaaa bienvenido a Vue',
-                    nombre:'Wilder',
-                    counter:0
+                    nombre:"",
+                    paises:["Bolivia","Peru"]
                 }
             },
             methods:{
-                decrement(){
-                    this.counter--;
-                },
-                increment(){
-                    this.counter++;
+                addPais(){
+                    this.paises.push(this.nombre);
+                    this.nombre="";
                 }
             }
             // mounted(){
