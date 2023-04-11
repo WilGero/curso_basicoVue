@@ -11,9 +11,25 @@
 <body>
     <div class="container py-4" id="app">
        <form action="" v-on:submit.prevent="addPais()">
-        <input class="form-control" type="text" v-model="nombre">
-        <button class="btn btn-primary mb-4">Agregar</button>
-        <p>{{paises}}</p>
+        <div class="mb-3">
+            <label for="InputName" class="form-label">Pais</label>
+            <input class="form-control" type="text" v-model="name" id="InputName">
+        </div>
+        <div class="mb-3">
+            <label for="InputCapital" class="form-label">Capital</label>
+            <input class="form-control" type="text" v-model="capital" id="InputCapital">
+        </div>
+       
+        <button type="submit" class="btn btn-primary mb-4">Agregar</button>
+        
+        <ul>
+            <template v-for="(pais,index) in paises">
+                <li>
+                    {{index+1}}) {{pais.name}} - {{pais.capital}}
+                </li>
+
+            </template>
+        </ul>
        </form>
 
     </div> 
@@ -22,14 +38,22 @@
        Vue.createApp({
             data(){
                 return{
-                    nombre:"",
-                    paises:["Bolivia","Peru"]
+                    name:"",
+                    capital:"",
+                    paises:[
+                            {name:"Bolivia",capital:"Sucre"},
+                            {name:"Peru",capital:"Lima"}
+                        ]
                 }
             },
             methods:{
                 addPais(){
-                    this.paises.push(this.nombre);
-                    this.nombre="";
+                    this.paises.push({
+                        name:this.name,
+                        capital:this.capital
+                    });
+                    this.name="";
+                    this.capital="";
                 }
             }
             // mounted(){
