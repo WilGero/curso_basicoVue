@@ -8,11 +8,26 @@
 </head>
 <body>
     <div id="app">
-
-    </div>
+        {{counter}}
+        <br>
+        {{message+" "+nombre}}
+    </div> 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-       console.log(Vue)
+    <script>""
+       Vue.createApp({
+            data(){
+                return{
+                    message:'Holaaa bienvenido a Vue',
+                    nombre:'Wilder',
+                    counter:0
+                }
+            },
+            mounted(){
+                setInterval(()=>{
+                    this.counter++;
+                },1000);
+            }
+       }).mount('#app');
     </script>
 </body>
 </html>
