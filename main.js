@@ -2,6 +2,7 @@ const app=Vue.createApp({
     data(){
         return{
             message:'Holaaaa WG7',
+            textSize:1,
             jugadores:[
                 {
                     id:1,
@@ -43,8 +44,9 @@ app.component('jugador-info',{
     props:['player'],
     template:`
         <div class='text-center'>
-        <strong>{{player.name}}</strong>:
-        <span>{{player.dorsal}}</span>    
+            <strong>{{player.name}}</strong>:
+            <span>{{player.dorsal}}</span> <br>
+            <button @click="$emit('crecerTexto',0.2)" class='btn btn-success' >+</button>    
         </div>
     `
 
