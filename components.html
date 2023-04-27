@@ -18,11 +18,13 @@
       <button-count></button-count>
       <div :style="{fontSize:textSize+'em'}">
         <jugador-info
-          @agrandar-texto="agrandar"
-          v-for="player in jugadores"
-          :key="player.id"
-          :player="player"
-        ></jugador-info>
+          @agrandar-texto="agrandar"     
+          :jugador="jugador"
+        >
+        <p>
+          De nacionalidad brasileña, su posicion natural es delantero, su apodo es el Fenomeno; el cual se gano por su gran habilidad para el regate y su enorme velocidad.
+        </p>
+      </jugador-info>
       </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

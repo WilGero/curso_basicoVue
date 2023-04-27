@@ -3,24 +3,11 @@ const app=Vue.createApp({
         return{
             message:'Holaaaa WG7',
             textSize:1,
-            jugadores:[
-                {
+            jugador:{
                     id:1,
                     name:'Ronaldo',
                     dorsal:9
                 },
-                {
-                    id:2,
-                    name:'Messi',
-                    dorsal:10
-                },
-                {
-                    id:1,
-                    name:'Cristiano Ronaldo',
-                    dorsal:7
-                }
-                
-            ]
         }
     },
     methods:{
@@ -46,11 +33,12 @@ app.component('jugador-info',{
 
         }
     },
-    props:['player'],
+    props:['jugador'],
     template:`
         <div class='text-center'>
-            <strong>{{player.name}}</strong>:
-            <span>{{player.dorsal}}</span> <br>
+            <strong>{{jugador.name}}</strong>:
+            <span>{{jugador.dorsal}}</span> <br>
+            <slot></slot>
             <button @click="$emit('agrandarTexto',0.2)" class='btn btn-success' >+</button>    
         </div>
     `
