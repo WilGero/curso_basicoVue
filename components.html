@@ -18,7 +18,7 @@
       <button-count></button-count>
       <div :style="{fontSize:textSize+'em'}">
         <jugador-info
-          @crecer-texto="textSize += $event"
+          @agrandar-texto="agrandar"
           v-for="player in jugadores"
           :key="player.id"
           :player="player"

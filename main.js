@@ -22,6 +22,11 @@ const app=Vue.createApp({
                 
             ]
         }
+    },
+    methods:{
+        agrandar(size){
+            this.textSize += size;
+        }
     }
 });
 
@@ -46,7 +51,7 @@ app.component('jugador-info',{
         <div class='text-center'>
             <strong>{{player.name}}</strong>:
             <span>{{player.dorsal}}</span> <br>
-            <button @click="$emit('crecerTexto',0.2)" class='btn btn-success' >+</button>    
+            <button @click="$emit('agrandarTexto',0.2)" class='btn btn-success' >+</button>    
         </div>
     `
 
